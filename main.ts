@@ -1,9 +1,16 @@
 // Refer to the DESMOS graph, here:
 // https://www.desmos.com/calculator/bt7rxexus6
+// 
+// For Simplicity:
+// A is X scaling
+// B is Y scaling
+// C is y
 function ramp (firstPosition: number, secondPosition: number, timeToRamp: number, elapsedTime: number) {
-    A = 0
-    B = 0
-    C = 0
+    A = timeToRamp
+    B = Math.abs(firstPosition - secondPosition)
+    C = firstPosition
+    X = elapsedTime
+    Y = ((3*B*Math.pow((X/A), 3)) - (2*B*Math.pow((X/A), 3)) + C)
 }
 function runArm (num: number, num2: number, num3: number, num4: number, num5: number) {
     PCA9685.setServoPosition(PCA9685.ServoNum.Servo1, Math.map(num, 0, 270, 0, 180), 64)
@@ -16,6 +23,8 @@ function runArm (num: number, num2: number, num3: number, num4: number, num5: nu
 let C = 0
 let B = 0
 let A = 0
+let Y = 0
+let X = 0
 makerbit.stopMotor(MakerBitMotor.B)
 basic.pause(1000)
 led.enable(false)
