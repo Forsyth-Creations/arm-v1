@@ -1,8 +1,9 @@
-function ramp () {
-	
-}
-function r2 (x: number, y: number) {
-	
+// Refer to the DESMOS graph, here:
+// https://www.desmos.com/calculator/bt7rxexus6
+function ramp (firstPosition: number, secondPosition: number, timeToRamp: number, elapsedTime: number) {
+    A = 0
+    B = 0
+    C = 0
 }
 function runArm (num: number, num2: number, num3: number, num4: number, num5: number) {
     PCA9685.setServoPosition(PCA9685.ServoNum.Servo1, Math.map(num, 0, 270, 0, 180), 64)
@@ -12,10 +13,9 @@ function runArm (num: number, num2: number, num3: number, num4: number, num5: nu
     makerbit.runMotor(MakerBitMotor.B, num5)
     basic.pause(2000)
 }
-// Named function
-function add (x: number, y: number) {
-    return x + y
-}
+let C = 0
+let B = 0
+let A = 0
 makerbit.stopMotor(MakerBitMotor.B)
 basic.pause(1000)
 led.enable(false)
@@ -26,5 +26,6 @@ let ServoC = [0, 0, 30, 50, 50]
 let ServoD = [0, 0, 0, 35, 35]
 let Hand = [100, 100, 0, 0, 100]
 basic.forever(function () {
-	
+    serial.writeString("")
+    basic.pause(1000)
 })
